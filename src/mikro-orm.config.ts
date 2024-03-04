@@ -1,6 +1,7 @@
-import { Post } from "./entities/post";
+import { Post } from "./entities/Post";
 import { __prod__ } from "./constants";
 import { MikroORM } from "@mikro-orm/core";
+import { PostgreSqlDriver } from '@mikro-orm/postgresql';
 import path from "path";
 
 
@@ -11,6 +12,6 @@ export default {
     },
     entities: [Post],
     dbName: 'reddit',
-    type: 'postgresql',
+    driver: PostgreSqlDriver,
     debug: !__prod__,
-} as Parameters<typeof MikroORM.init>[0];
+};
